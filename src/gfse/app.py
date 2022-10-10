@@ -35,10 +35,10 @@ def main(host, port, debug, use_reloader):
 if __name == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-b', '--host', default=default_host, help='APIn Host')
-    parser.add_argument('-p', '--port', type=int default=default_port, help='API Port')
+    parser.add_argument('-p', '--port', type=int, default=default_port, help='API Port')
     parser.add_argument('-v', '--verbose', type=bool, default=default_debug, help='API debug')
     parser.add_argument('-r', '--use-reloader', type=bool, default=default_reloader, help='API use reloader')
     args = parser.parse_args()
     
-    main(args.host, args.port, args.debug, args.use_reloader):
+    main(args.host, args.port, args.debug, args.use_reloader)
     

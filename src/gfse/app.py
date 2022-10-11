@@ -8,26 +8,6 @@ from gfse import api
 
 app = api.create_app(os.path.join(os.path.dirname(os.path.realpath(__file__)), "config"))
 
-def load_log(debug):
-    log_config = {
-        'version': 1,
-        'root': { 'handlers': ['console'], 'level': 'DEBUG' if debug else 'INFO' },
-	'handlers': {'console': {'class': 'logging.StreamHandler', 'formatter': 'color'}},
-	'formatters': {'color': {'()':     'colorlog.ColoredFormatter', 
-                                 'format': '%(asctime)s %(log_color)s%(levelname)-8s%(reset)s %(process)s %(name)s %(message)s'}}
-    }
-   
-    logging.config.dictConfig(log_config)
-    try:
-        if isinstance(logging.getLogger().handlers[0].formatter, colorlog.ColoredFormatter):
-            logging.getLogger().handlers[0].formatter.log_colors = {'DEBUG': 'cyan', 
-                                                                    'INFO': 'green', 
-                                                                    'WARNING': 'yellow', 
-                                                                    'ERROR': 'red', 
-                                                                    'CRITICAL': 'purple'}
-    except Exception:
-        pass
-
 def main(host, port, debug, use_reloader):
     print("host: {}".format(host))
     print("port: {}".format(port))

@@ -1,18 +1,16 @@
 import argparse
-import colorlog
-import logging
-import logging.config
 import os
 
 from gfse import api
 
-app = api.create_app(os.path.join(os.path.dirname(os.path.realpath(__file__)), "config"))
+app = api.create_app(os.path.join(os.path.dirname(os.path.realpath(__file__)), "config"),
+                     os.environ.get('API_LOGFILE', None))
 
 def main(host, port, debug, use_reloader):
     print("host: {}".format(host))
     print("port: {}".format(port))
     print("debug: {}".format(debug))
-    load_log(debug)
+    #load_log(debug)
     app.run(host=host, port=port, debug=debug, use_reloader=use_reloader)
     
 if __name__ == '__main__':

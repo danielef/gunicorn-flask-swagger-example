@@ -57,7 +57,6 @@ def timeit(method):
     return timed
 
 def create_app(spec_dir, logfile):
-    print('logfile: "{}" {}'.format(logfile, logfile is None))
     load_log(logfile)
     options = {'swagger_url': '/', 'swagger_path': swagger_ui_path}
     app = connexion.App(__name__, specification_dir=spec_dir, options=options)

@@ -1,0 +1,28 @@
+swagger: "2.0"
+
+info:
+  title: Swagger Template
+  description: A Template API
+  version: "0.1"
+tags:
+  - name: greeting
+    description: A greeting message
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+paths:
+  /greeting:
+    get:
+      tags:
+        - greeting
+      operationId: gfse.api.routes.say_hello
+      summary: Returns a greeting.
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Message greeting.  

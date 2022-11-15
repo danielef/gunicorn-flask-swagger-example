@@ -36,4 +36,9 @@ optional arguments:
   -r, --use-reloader    API use reloader
  ```
  
+ ## Running with gunicorn
+ 
+ ```
+ gunicorn -w 4 gfse.app:app
+ ```
  
